@@ -12,14 +12,14 @@ spec:
         app: gateway-svc
     spec:
       containers:
-      - name: gateway-svc
-        image: trycatchlearn/gateway-svc
-        imagePullPolicy: Always
-        env:
-          - name: ClientApp
-            value: https://app.carsties.store
-          - name: IdentityServiceUrl
-            value: https://id.trycatchlearn.com
+        - name: gateway-svc
+          image: almoghindi/gateway-svc
+          imagePullPolicy: Always
+          env:
+            - name: ClientApp
+              value: https://app.carsties.store
+            - name: IdentityServiceUrl
+              value: https://id.almoghindi.com
 ---
 apiVersion: v1
 kind: Service
@@ -30,6 +30,5 @@ spec:
   selector:
     app: gateway-svc
   ports:
-  - port: 80
-    targetPort: 80
-
+    - port: 80
+      targetPort: 80

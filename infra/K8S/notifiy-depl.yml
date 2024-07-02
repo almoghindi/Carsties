@@ -12,22 +12,22 @@ spec:
         app: notify-svc
     spec:
       containers:
-      - name: notify-svc
-        image: trycatchlearn/notify-svc
-        imagePullPolicy: Always
-        env:
-          - name: RabbitMq__Host
-            value: rabbit-clusterip
-          - name: RabbitMq__Username
-            valueFrom:
-              secretKeyRef:
-                name: notify-secret
-                key: rabbitUn
-          - name: RabbitMq__Password
-            valueFrom:
-              secretKeyRef:
-                name: notify-secret
-                key: rabbitPw
+        - name: notify-svc
+          image: almoghindi/notify-svc
+          imagePullPolicy: Always
+          env:
+            - name: RabbitMq__Host
+              value: rabbit-clusterip
+            - name: RabbitMq__Username
+              valueFrom:
+                secretKeyRef:
+                  name: notify-secret
+                  key: rabbitUn
+            - name: RabbitMq__Password
+              valueFrom:
+                secretKeyRef:
+                  name: notify-secret
+                  key: rabbitPw
 ---
 apiVersion: v1
 kind: Service
@@ -38,5 +38,5 @@ spec:
   selector:
     app: notify-svc
   ports:
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
