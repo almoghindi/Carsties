@@ -4,16 +4,16 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 
 ## Features
 
-- **Microservices Architecture:** Multiple backend services built with .NET.
+- **Microservices Architecture:** Multiple backend services built with ASP.NET.
 - **Client Application:** Frontend built with Next.js.
 - **Service Communication:** Utilizes RabbitMQ and gRPC.
 - **Identity Management:** Integrated with Duende IdentityServer.
 - **Gateway:** Uses Microsoft YARP as a gateway.
 - **Real-Time Updates:** Employs SignalR for push notifications.
-- **Testing:** Unit and integration testing using XUnit.
 - **Containerization:** Dockerized services.
 - **CI/CD:** GitHub Actions for continuous integration and delivery.
 - **Deployment:** Local deployment with Docker Compose and Kubernetes, including publishing to an online Kubernetes cluster.
+- **Testing:** Unit and integration testing using XUnit.
 
 ## Microservices Overview
 
@@ -53,7 +53,7 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 - **Key Features:**
   - User registration and login.
   - Issuing and validating JWT tokens.
-  - Integrating with IdentityServer for OAuth2 and OpenID Connect.
+  - Integrating with Duende IdentityServer for OAuth2 and OpenID Connect.
   - Managing user roles and permissions.
 
 ### NotificationService
@@ -66,7 +66,7 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 ### SearchService
 - **Functionality:** Provides search capabilities for auction listings and bids.
 - **Key Features:**
-  - Indexing auction listings and bids using Elasticsearch.
+  - Indexing auction listings and bids using MongoDB.
   - Handling search queries from users.
   - Returning relevant search results quickly.
   - Supporting advanced search features like filters and sorting.
@@ -83,6 +83,11 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 - **Kubernetes**
 - **GitHub Actions**
 - **XUnit** (for unit and integration testing)
+
+## Databases
+
+- **MongoDB**
+- **PostgreSQL**
 
 ## Getting Started
 
@@ -113,6 +118,16 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 
 5. **Access the Application:**
     Open your browser and navigate to `https://app.carsties.com`.
+
+## Media
+
+### Home Page
+
+![Screenshot 2024-07-02 230047](https://github.com/almoghindi/Carsties/assets/102804545/f3118070-6cc2-480e-86f4-51c1e60171a2)
+
+### Car Page
+
+![Screenshot 2024-07-02 230109](https://github.com/almoghindi/Carsties/assets/102804545/88b0e18e-229d-4a4f-8d24-1866834c1f4b)
 
 ---
 
