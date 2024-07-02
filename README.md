@@ -10,10 +10,10 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 - **Identity Management:** Integrated with Duende IdentityServer.
 - **Gateway:** Uses Microsoft YARP as a gateway.
 - **Real-Time Updates:** Employs SignalR for push notifications.
+- **Testing:** Unit and integration testing using XUnit.
 - **Containerization:** Dockerized services.
 - **CI/CD:** GitHub Actions for continuous integration and delivery.
 - **Deployment:** Local deployment with Docker Compose and Kubernetes, including publishing to an online Kubernetes cluster.
-- **Testing:** Unit and integration testing using XUnit.
 
 ## Microservices Overview
 
