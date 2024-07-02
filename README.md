@@ -1,42 +1,119 @@
-# Microservices Udemy Course repository
+# Carsties
 
-This is the repository for the Microservices 'Carsties' app created for the Udemy course released in July 2023.
+Carsties is an advanced application developed using .NET and Next.js with a microservices architecture. This repository demonstrates how to build and deploy a microservices-based application.
 
-You can view a demo of this app [here](https://app.carsties.store).   You can register a user and sign in to see it in action or you can use one of the test accounts with the username 'bob' or 'alice' with the password of 'Pass123$' to sign in.
+## Features
 
-You can see how this app was made by checking out the Udemy course for this [here](https://www.udemy.com/course/build-a-microservices-app-with-dotnet-and-nextjs-from-scratch/?couponCode=NEWCOURSEPROM) (with discount)
+- **Microservices Architecture:** Multiple backend services built with .NET.
+- **Client Application:** Frontend built with Next.js.
+- **Service Communication:** Utilizes RabbitMQ and gRPC.
+- **Identity Management:** Integrated with Duende IdentityServer.
+- **Gateway:** Uses Microsoft YARP as a gateway.
+- **Real-Time Updates:** Employs SignalR for push notifications.
+- **Testing:** Unit and integration testing using XUnit.
+- **Containerization:** Dockerized services.
+- **CI/CD:** GitHub Actions for continuous integration and delivery.
+- **Deployment:** Local deployment with Docker Compose and Kubernetes, including publishing to an online Kubernetes cluster.
 
-You can run this app locally on your computer by following these instructions:
+## Microservices Overview
 
-1. Using your terminal or command prompt clone the repo onto your machine in a user folder 
+### AuctionService
+- **Functionality:** Manages auction-related operations.
+- **Key Features:**
+  - Creating and managing auction listings.
+  - Handling auction start and end times.
+  - Processing auction bids and determining winners.
+  - Integrating with the BiddingService for bid management.
 
-```
-git clone https://github.com/TryCatchLearn/Carsties.git
-```
-2. Change into the Carsties directory
-```
-cd Carsties
-```
-3. Ensure you have Docker Desktop installed on your machine.  If not download and install from Docker and review their installation instructions for your Operating system [here](https://docs.docker.com/desktop/).
-4. Build the services locally on your computer by running (NOTE: this may take several minutes to complete):
-```
-docker compose build
-```
-5. Once this completes you can use the following to run the services:
-```
-docker compose up -d
-```
-6. To see the app working you will need to provide it with an SSL certificate.   To do this please install 'mkcert' onto your computer which you can get from [here](https://github.com/FiloSottile/mkcert).  Once you have this you will need to install the local Certificate Authority by using:
-```
-mkcert -install
-```
-7. You will then need to create the certificate and key file on your computer to replace the certificates that I used.   You will need to change into the 'devcerts' directory and then run the following command:
-```
-cd devcerts
-mkcert -key-file carsties.com.key -cert-file carsties.com.crt app.carsties.com api.carsties.com id.carsties.com
-```
-8.  You will also need to create an entry in your host file so you can reach the app by its domain name.   Please use this [guide](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux) if you do not know how to do this.  Create the following entry:
-```
-127.0.0.1 id.carsties.com app.carsties.com api.carsties.com
-```
-9. You should now be able to browse to the app on https://app.carsties.com
+### BiddingService
+- **Functionality:** Manages the bidding process within auctions.
+- **Key Features:**
+  - Recording bids from users.
+  - Validating bid amounts and user eligibility.
+  - Providing real-time bid updates using SignalR.
+  - Ensuring that the highest bid is correctly reflected in the AuctionService.
+
+### Contracts
+- **Functionality:** Defines shared interfaces and models used across different microservices.
+- **Key Features:**
+  - Common data models for consistency.
+  - Interfaces for service-to-service communication.
+  - Shared utility functions and constants.
+
+### GatewayService
+- **Functionality:** Acts as the API gateway for the application, routing requests to appropriate microservices.
+- **Key Features:**
+  - Centralized entry point for client applications.
+  - Request routing to backend microservices.
+  - Authentication and authorization enforcement using IdentityService.
+  - Load balancing and request validation.
+
+### IdentityService
+- **Functionality:** Manages user authentication and authorization.
+- **Key Features:**
+  - User registration and login.
+  - Issuing and validating JWT tokens.
+  - Integrating with IdentityServer for OAuth2 and OpenID Connect.
+  - Managing user roles and permissions.
+
+### NotificationService
+- **Functionality:** Manages notifications for the application.
+- **Key Features:**
+  - Sending real-time notifications using SignalR.
+  - Handling email and SMS notifications.
+  - Integrating with other services to notify users about important events (e.g., outbid notifications, auction wins).
+
+### SearchService
+- **Functionality:** Provides search capabilities for auction listings and bids.
+- **Key Features:**
+  - Indexing auction listings and bids using Elasticsearch.
+  - Handling search queries from users.
+  - Returning relevant search results quickly.
+  - Supporting advanced search features like filters and sorting.
+
+## Tools and Technologies
+
+- **.NET**
+- **Next.js**
+- **RabbitMQ**
+- **Duende IdentityServer**
+- **Microsoft YARP**
+- **SignalR**
+- **Docker**
+- **Kubernetes**
+- **GitHub Actions**
+- **XUnit** (for unit and integration testing)
+
+## Getting Started
+
+### Prerequisites
+
+- Coding experience
+- Windows, Mac, or Linux computer capable of running Docker
+
+### Installation
+
+1. **Clone the Repository:**
+    ```bash
+    git clone https://github.com/almoghindi/Carsties.git
+    cd Carsties
+    ```
+
+2. **Install Docker Desktop:** Ensure Docker is installed and running on your machine. Follow the [Docker installation instructions](https://docs.docker.com/desktop/).
+
+3. **Build the Services:**
+    ```bash
+    docker compose build
+    ```
+
+4. **Run the Services:**
+    ```bash
+    docker compose up -d
+    ```
+
+5. **Access the Application:**
+    Open your browser and navigate to `https://app.carsties.com`.
+
+---
+
+This README provides a summary of the Carsties project, its features, the microservices architecture, the technologies used, and how to get started with the project.
