@@ -4,7 +4,7 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 
 ## Features
 
-- **Microservices Architecture:** Multiple backend services built with ASP.NET.
+- **Microservices Architecture:** Multiple backend services built with .NET.
 - **Client Application:** Frontend built with Next.js.
 - **Service Communication:** Utilizes RabbitMQ and gRPC.
 - **Identity Management:** Integrated with Duende IdentityServer.
@@ -74,6 +74,7 @@ Carsties is an advanced application developed using .NET and Next.js with a micr
 ## Tools and Technologies
 
 - **.NET**
+- **ASP.NET**
 - **Next.js**
 - **RabbitMQ**
 - **Duende IdentityServer**
